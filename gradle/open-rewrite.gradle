@@ -1,0 +1,24 @@
+
+// Software composition analysis
+dependencies {
+    rewrite(platform(libs.open.rewrite.recipe.bom))
+    rewrite(libs.open.rewrite.migrate.java)
+    rewrite(libs.open.rewrite.static.analysis)
+}
+
+rewrite {
+    activeRecipe("org.openrewrite.staticanalysis.CommonStaticAnalysis")
+    //activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
+
+    setExportDatatables(true)
+
+    exclusion(
+            "src/docsTest/asciidoc",
+            "src/infrastructure",
+            "src/main/docker",
+            "src/main/helm",
+            "src/main/kubernetes",
+            "src/main/nomad",
+            "src/gradle/wrapper",
+    )
+}
