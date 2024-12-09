@@ -1,3 +1,23 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+plugins {
+    id('org.ajoberstar.reckon.settings') version '0.19.1' apply(false)
+}
+
 rootProject.name = 'modulith'
 
 
+if (providers.gradleProperty("reckon.enabled").getOrElse('false') == 'true') {
+    apply plugin: 'org.ajoberstar.reckon.settings'
+
+    reckon {
+        defaultInferredScope = 'patch'
+        scopeCalc = calcScopeFromProp().or(calcScopeFromCommitMessages())
+        snapshotFromProp()
+    }
+}

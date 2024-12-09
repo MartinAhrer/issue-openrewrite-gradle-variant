@@ -1,0 +1,7 @@
+banner:
+  location: banner.txt
+
+logging:
+  level:
+    root: info
+    org.springframework.boot: debug

@@ -1,0 +1,18 @@
+[versions]
+
+spock = "2.3-groovy-4.0" # keep aligned with groovyMinorVersion
+
+spring-modulith = "1.3.0"
+
+[libraries]
+
+open-rewrite-recipe-bom = { module = "org.openrewrite.recipe:rewrite-recipe-bom", version.ref = "open-rewrite-recipe-bom" }
+open-rewrite-static-analysis = { module = "org.openrewrite.recipe:rewrite-static-analysis" }
+open-rewrite-migrate-java = { module = "org.openrewrite.recipe:rewrite-migrate-java" }
+
+spock-bom = { module = "org.spockframework:spock-bom", version.ref = "spock" }
+spock = { module = "org.spockframework:spock-core" }
+spock-spring = { module = "org.spockframework:spock-spring" }
+
+
+[plugins]
